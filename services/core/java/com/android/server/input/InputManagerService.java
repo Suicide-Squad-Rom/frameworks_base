@@ -1415,6 +1415,11 @@ public class InputManagerService extends IInputManager.Stub
         nativeSetVolumeKeysRotation(mPtr, mode);
     }
 
+    public void updateVolumeKeysRotationFromSettings() {
+        int mode = getVolumeKeysRotationSetting(0);
+        nativeSetVolumeKeysRotation(mPtr, mode);
+    }
+
     public void registerVolumeKeysRotationSettingObserver() {
         mContext.getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION), false,
